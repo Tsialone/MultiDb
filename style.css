@@ -1,0 +1,197 @@
+/* Style de la table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* En-têtes de colonne */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  /* Lignes de la table */
+  tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Cellules */
+  td {
+    padding: 12px;
+  }
+  
+  /* Alternance de couleur des lignes */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  /* Style de base pour les liens */
+a {
+    color: #4CAF50; /* Couleur du lien */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+    font-weight: bold;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+  }
+  
+  /* Effet au survol du lien */
+  a:hover {
+    color: #388E3C; /* Couleur au survol */
+    border-bottom: 2px solid #4CAF50; /* Ligne soulignée au survol */
+  }
+  
+  /* Lien visité */
+  a:visited {
+    color: #2E7D32; /* Couleur pour les liens déjà visités */
+  }
+/* Style de base pour les paragraphes */
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6; /* Espacement entre les lignes */
+    color: #333333; /* Couleur du texte */
+    margin: 15px 0; /* Espace au-dessus et en-dessous */
+    text-align: justify; /* Justification du texte */
+  }
+  
+  /* Style spécifique pour le premier paragraphe */
+  p:first-of-type {
+    font-weight: bold;
+  }
+  
+  /* Paragraphe avec surbrillance */
+  p.highlight {
+    background-color: #f9f9f9; /* Fond clair pour mise en valeur */
+    padding: 10px;
+    border-left: 4px solid #4CAF50; /* Ligne de couleur sur le côté gauche */
+  }
+    /* Style de base pour les boutons */
+input[type="button"], input[type="submit"] {
+    background-color: #4CAF50; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure par défaut */
+    padding: 12px 20px; /* Espace intérieur du bouton */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Curseur en forme de main */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Effet de survol */
+  input[type="button"]:hover, input[type="submit"]:hover {
+    background-color: #388E3C; /* Couleur au survol */
+    transform: scale(1.05); /* Légère mise en avant */
+  }
+  
+  /* Effet au clic */
+  input[type="button"]:active, input[type="submit"]:active {
+    background-color: #2E7D32; /* Couleur lors du clic */
+    transform: scale(0.98); /* Légère réduction */
+  }
+  
+  /* Bouton désactivé */
+  input[type="button"]:disabled, input[type="submit"]:disabled {
+    background-color: #cccccc; /* Couleur grise */
+    cursor: not-allowed; /* Curseur désactivé */
+    color: #666666; /* Couleur de texte grisé */
+  }
+/* Style de base pour le select */
+select {
+    width: 200px; /* Largeur du menu déroulant */
+    padding: 10px; /* Espacement intérieur */
+    font-size: 16px; /* Taille de la police */
+    color: #333333; /* Couleur du texte */
+    background-color: #f9f9f9; /* Fond clair */
+    border: 1px solid #ccc; /* Bordure gris clair */
+    border-radius: 5px; /* Coins arrondis */
+    appearance: none; /* Supprime l'apparence native du select (pour les navigateurs supportant cette propriété) */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Effet au survol du select */
+  select:hover {
+    border-color: #4CAF50; /* Changement de la bordure au survol */
+  }
+  
+  /* Style des options dans le select */
+  select option {
+    padding: 10px; /* Espacement intérieur des options */
+    font-size: 16px; /* Taille de la police */
+    background-color: #fff; /* Fond des options */
+    color: #333; /* Couleur du texte */
+    border: 1px solid transparent; /* Bordure transparente par défaut */
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Effet au survol des options */
+  select option:hover {
+    background-color: #f1f1f1; /* Fond clair au survol de l'option */
+  }
+  
+  /* Option sélectionnée */
+  select option:checked {
+    background-color: #4CAF50; /* Fond vert pour l'option sélectionnée */
+    color: white; /* Couleur du texte de l'option sélectionnée */
+  }
+      /* h2 {
+        font-family: 'Georgia', serif;
+        font-size: 30px;
+        color: #16a085;
+        text-align: left;
+        margin-bottom: 15px;
+        text-align: center;
+    } */
+    input[type="text"] {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    
+    input[type="text"]:focus {
+      border-color: #66afe9;
+      box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      background-color: #f5f5f5;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    
+    input[type="text"]:focus {
+      background-color: #fff;
+      border-color: #4CAF50;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    input[type="text"]:hover {
+      border-color: #888;
+    }
+    
+    input[type="text"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+        
