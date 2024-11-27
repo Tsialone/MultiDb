@@ -11,6 +11,7 @@
     <title>Home</title>
 </head>
 <body>
+    <a href="homeinsertion.jsp">Insertion</a>
     <form action="affiche.jsp" method="get">
     <h3>Recherche</h3>
         <p>

@@ -19,6 +19,15 @@ import javax.management.relation.Relation;
 
 public class Fonction {
     public static Dao dao;
+    public static String[] classes = {
+            "Note_etudiant",
+            "Matiere",
+            "Etudiant",
+            "Annee",
+            "Payement",
+            "Annee",
+            "Mdp"
+    };
 
     public Fonction(Dao dao) {
         setDao(dao);
@@ -82,7 +91,7 @@ public class Fonction {
         Table table = searcheClass(classname);
         String html = "";
         if (table != null) {
-            html += "<p>" + Myexception.exceptions + "</p>";
+            // html += "<p>" + Myexception.exceptions + "</p>";
             Object[][] valeurs = table.getValeurs();
             html = "<h2>" + table.getName() + "</h1><table>";
             for (int i = 0; i < valeurs.length; i++) {
@@ -95,6 +104,42 @@ public class Fonction {
             html += "</table>";
         }
         return html;
+    }
+
+    public static String selectClasseHtml() {
+        String html = "<select name='classe'>";
+        for (String string : classes) {
+            html += "<option  value='" + string + "' >" + string + "</option>";
+        }
+        html += "</select>";
+        return html;
+    }
+
+    public static String getFormulaireInsertion(String classename) throws Myexception  , Exception
+
+    {
+
+        Table tab = searcheClass(classename);
+        Attribut  [] attributs = tab.getAttributs();
+        String html = "<form action='formulaireinsertion.jsp'  method='get'>";
+            html+="<div  class='att-valeurs' >";
+            html+="<div class='att' >";
+        for (Attribut att : attributs) {
+            html+="<p>";
+            html+=att.getNom();
+            html+="</p>";
+        }
+             html+="</div>";
+             html+="<div class='valeurs' >";
+        for (Attribut att : attributs) {
+            html+="<input  placeholder='"+att.getNom()+"' >";
+        }
+            html+="</div>";
+            html+="</div>";
+        html+= "<input type='submit' value='Inserer' >";
+        html += "</form>";
+        return html;
+        
     }
 
     public static String log() {
