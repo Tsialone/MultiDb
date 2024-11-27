@@ -159,5 +159,4 @@ INSERT INTO semestre_matiere (idSemestre, codeMatiere) VALUES ('S6', 'INF303');
         INSERT INTO options_matieres (idOption, codeMatiere, idSemestre, optionnel) VALUES ('web et design', 'INF304', 'S6', 'true');
         INSERT INTO options_matieres (idOption, codeMatiere, idSemestre, optionnel) VALUES ('web et design', 'INF318', 'S6', 'false');
         INSERT INTO options_matieres (idOption, codeMatiere, idSemestre, optionnel) VALUES ('web et design', 'ORG304', 'S6', 'false');
-
-desc options_matieres;
+desc note_etudiant;

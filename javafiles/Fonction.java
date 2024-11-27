@@ -45,8 +45,8 @@ public class Fonction {
 
     public static List<String> intersection(List<String> l1, List<String> l2) {
         List<String> A = new ArrayList<>(l1);
-        Fonction.toLowerCase(A);
         List<String> B = new ArrayList<>(l2);
+        Fonction.toLowerCase(A);
         Fonction.toLowerCase(B);
         List<String> intersection = new ArrayList<>(A);
         intersection.retainAll(B);

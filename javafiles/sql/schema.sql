@@ -24,22 +24,20 @@ CREATE TABLE etudiant (
 );
 
 
---problematique
 CREATE TABLE semestre_etudiant (
     idEtudiant VARCHAR(50),
     idSemestre VARCHAR(50),
     idPromotion VARCHAR(50),
     CONSTRAINT pk_promotion_semestre_etudiant PRIMARY KEY (idEtudiant, idSemestre, idPromotion),
     CONSTRAINT fk_idSemestre_etudiant FOREIGN KEY (idSemestre) REFERENCES semestre(idSemestre),
-    CONSTRAINT fk_etudiant_semestre FOREIGN KEY (idEtudiant) REFERENCES etudiant(idEtudiant),
     CONSTRAINT unique_etudiant_semestre UNIQUE (idEtudiant, idSemestre) 
+    -- CONSTRAINT fk_etudiant_semestre FOREIGN KEY (idEtudiant) REFERENCES etudiant(idEtudiant),
 );
 CREATE TABLE matiere (
     codeMatiere VARCHAR(50) PRIMARY KEY NOT NULL,
     nom VARCHAR(100) ,
-    credit INTEGER NOT NULL ,
+    credit INT NOT NULL ,
     configuration VARCHAR(3) CHECK (configuration IN ('min', 'max' , 'avg' , 'sum'))
-
 );
 
 CREATE TABLE semestre_matiere (
@@ -49,13 +47,12 @@ CREATE TABLE semestre_matiere (
     CONSTRAINT fk_semestre FOREIGN KEY (idSemestre) REFERENCES semestre(idSemestre),
     CONSTRAINT fk_matiere FOREIGN KEY (codeMatiere) REFERENCES matiere(codeMatiere)
 );
---problematique
 CREATE TABLE note_etudiant (
     idEtudiant VARCHAR(50),
     codeMatiere VARCHAR(50),
     note NUMBER,
-    CONSTRAINT fk_codeMatiere FOREIGN KEY (codeMatiere) REFERENCES matiere(codeMatiere),
-    CONSTRAINT fk_idEtudiant FOREIGN KEY (idEtudiant) REFERENCES etudiant(idEtudiant)
+    CONSTRAINT fk_codeMatiere FOREIGN KEY (codeMatiere) REFERENCES matiere(codeMatiere)
+    -- CONSTRAINT fk_idEtudiant FOREIGN KEY (idEtudiant) REFERENCES etudiant(idEtudiant)
 );
 
 -- Part 2: Creating option and option_matiere tables
@@ -74,6 +71,8 @@ CREATE TABLE options_matieres (
     CONSTRAINT fk_option_matiere FOREIGN KEY (codeMatiere) REFERENCES matiere(codeMatiere),
     CONSTRAINT fk_option_semestre FOREIGN KEY (idSemestre) REFERENCES semestre(idSemestre)
 );
+
+
 
 CREATE TABLE ue (
     idOption VARCHAR(50),
@@ -109,7 +108,6 @@ INSERT INTO SEMESTRE
 (IDSEMESTRE)
 values
 ('S6');
-
 
 --insertion de 5 etudiants 
 INSERT INTO etudiant (idEtudiant, nom) VALUES ('ETU000001', 'Jean Marie Francois');
@@ -204,6 +202,7 @@ INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000001', '
 INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000001', 'INF106', 14.60);
 INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000001', 'MTH103', 12.80);
 INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000001', 'MTH105', 15.00);
+
 -- Insertion des notes pour l'étudiant 'ETU000002' en semestre 'S2'
 INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000002', 'INF102', 14.20);
 INSERT INTO NOTE_ETUDIANT (IDETUDIANT, CODEMATIERE, NOTE) VALUES ('ETU000002', 'INF103', 16.80);
@@ -287,23 +286,3 @@ WHERE IDOPTION = 'web et design' AND OPTIONS_MATIERES.OPTIONNEL = 'true';
 
 
 
-
-
-select matiere.codematiere , options_matieres.idoption from  options_matieres join matiere on matiere.codematiere = options_matieres.codematiere;
-
-select  matiere.codematiere , matiere.nom    from semestre_matiere  join matiere on matiere.codematiere = semestre_matiere.codematiere where semestre_matiere.IDSEMESTRE = 'S1';
-
-
-
-select * from note_etudiant;
-
-UPDATE note_etudiant
-SET note = note + 1
-WHERE idEtudiant = 'ETU000001' 
-  AND codematiere = 'INF101';
-
-
-select * from all_tables where OWNER = 'ITU';
-desc semestre;
-
-desc semestre_matiere;

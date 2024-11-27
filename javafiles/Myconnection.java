@@ -22,7 +22,7 @@ public class Myconnection {
     }
 
     public void execute(String query) throws SQLException {
-        connection.createStatement().executeQuery(query);
+        statement.execute(query);
     }
 
     public Table getTab(String query) throws SQLException {
@@ -36,15 +36,17 @@ public class Myconnection {
         while (resultset.next()) {
             Object[] row = new Object[column];
             for (int j = 1; j <= column; j++) {
-                row[j - 1] = resultset.getObject(j);
+                    row[j - 1] = resultset.getObject(j);
             }
             rows.add(row);
         }
         Object[][] tab = new Object[rows.size()][column];
+
         relation.setValeurs (rows.toArray(tab));
+        relation.initilizeAtt();
         return relation;
     }
-
+   
     public String[] getColumn(String query) throws SQLException {
         ResultSet resultset = statement.executeQuery(query);
         ResultSetMetaData columndata = resultset.getMetaData();

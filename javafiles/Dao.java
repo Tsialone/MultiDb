@@ -67,7 +67,8 @@ public class Dao {
     }
 
     public void executeQuery(String query) throws SQLException {
-        database.execute(query);
+        this.database.execute(query);
+        this.database.execute("commit");
     }
 
     public Table getTab(String query)  throws SQLException {
